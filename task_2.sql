@@ -1,5 +1,13 @@
 -- task_2.sql
 
+-- Creating the 'authors' table with 'author_name'
+CREATE TABLE authors (
+    author_id INT AUTO_INCREMENT PRIMARY KEY,
+    author_name VARCHAR(200) NOT NULL,  -- Changed from first_name and last_name to author_name
+    birth_date DATE,
+    nationality VARCHAR(100)
+);
+
 -- Creating the 'books' table
 CREATE TABLE books (
     book_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -10,15 +18,6 @@ CREATE TABLE books (
     publication_date DATE,
     stock_quantity INT,
     FOREIGN KEY (author_id) REFERENCES authors(author_id)
-);
-
--- Creating the 'authors' table
-CREATE TABLE authors (
-    author_id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
-    birth_date DATE,
-    nationality VARCHAR(100)
 );
 
 -- Creating the 'customers' table
@@ -51,3 +50,4 @@ CREATE TABLE order_details (
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
     FOREIGN KEY (book_id) REFERENCES books(book_id)
 );
+
